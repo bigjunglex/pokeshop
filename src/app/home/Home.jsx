@@ -1,13 +1,8 @@
-import { Footer } from "./Footer.jsx"
-import { Header } from "./Header.jsx"
-
-
 const Home = () => {
   
   return ( 
   <>
-    <Header/>
-    <Footer />
+    <h1>HOME :japanese_ogre: </h1>
   </>
   )
 }
