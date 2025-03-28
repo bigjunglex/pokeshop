@@ -1,3 +1,7 @@
+const Logo = () => {
+  
+}
+
 const Home = () => {
   
   return ( 

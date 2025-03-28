@@ -1,5 +1,5 @@
 const Footer = () => {
-    return <h1>Foooter</h1>
+    return <footer>Foooter</footer>
 }
 
 

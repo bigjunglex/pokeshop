@@ -1,0 +1,22 @@
+:root {
+    --red: rgb(239, 83, 80);
+    --black: #263238;
+    --white: #fbfbfb;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    line-height: 1.35;
+    background-color: var(--white);
+    color: var(--black);
+    margin: 0;
+}
+
+
+header {
+    background-color: var(--red);
+}
+
+footer {
+    border-top: 1px solid var(--red);
+}
