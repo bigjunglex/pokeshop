@@ -32,3 +32,18 @@ header {
 footer {
     border-top: 1px solid var(--red);
 }
+
+
+
+.item_card {
+    width: 200px;
+    height: 300px;
+}
+
+.shop_wrapper{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

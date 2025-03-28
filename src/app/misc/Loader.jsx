@@ -1,5 +1,7 @@
+import './loader.css'
+
 const Loader = () => {
-    return <h1>LOADING NIGGER</h1>
+    return <div className="spinner"></div>
 }
 
 
