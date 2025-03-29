@@ -29,6 +29,17 @@ details[open] > summary > span{
 header {
     background-color: var(--red);
     color: var(--text-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px 0;
+    min-height: 100px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    width: 25%;
 }
 
 footer {

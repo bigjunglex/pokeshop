@@ -10,7 +10,21 @@ const App = () => {
     const [cart, setCart] = useState([])
     const [items, setItems] = useState({items: [], isLoading: true})
     const [error, setError] = useState(null)
+    const [cartLoaded, setCartLoaded] = useState(false)
     
+    //cart info interaction with local storage
+    useEffect(() => {
+        const stored = JSON.parse(localStorage.getItem('cart'))
+        if (stored && !cartLoaded) {
+            setCart(stored)
+            setCartLoaded(true)
+        } else {
+            const current = JSON.stringify(cart)
+            localStorage.setItem('cart',current)
+        }
+    },[cart])
+    
+    //shop info fetch + interaction with session storage
     useEffect(() => {
         //dummy data intercepts fetch
         sessionStorage.setItem('items', dummyItems)
@@ -33,7 +47,7 @@ const App = () => {
 
     return (
     <>
-        <Header />
+        <Header amount={cart.length} />
         <Outlet context={{shop: items, cart: [cart, setCart]}} />
         <Footer />
     </>
