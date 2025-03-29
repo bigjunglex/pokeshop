@@ -7,6 +7,6 @@
 [   ] cart logic
 
 
-<---FINAL--->
 
 [  ] Change fakestore's data&fetch to pokeapi
+[  ] Footer links to gh and top lesson
