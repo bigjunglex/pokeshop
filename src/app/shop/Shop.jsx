@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router"
+import { useOutletContext, Link } from "react-router"
 import { useState } from "react"
 import { Error } from "../misc/Error.jsx"
 import { Loader } from "../misc/Loader.jsx"
@@ -36,9 +36,11 @@ const Shop = () => {
     if (isLoading) return <Loader />
     
     return (
-        <div className="shop_wrapper">
-            {items.map(item => <Card key={item.id} item={item}/> )}
-        </div>
+        <main>
+            <div className="shop_wrapper">
+                {items.map(item => <Card key={item.id} item={item}/> )}
+            </div>
+        </main>
     )
 
 }
