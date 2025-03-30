@@ -1,14 +1,14 @@
-import { Link } from "react-router"
+import { NavLink } from "react-router"
 
 
 const Nav = ({ amount }) => {
     return (
         <nav>
-            <Link to={'/shop'}> SHOP </Link>
+            <NavLink to={'/'}> <div>Home</div> </NavLink>
             <br />
-            <Link to={'/cart'}> 🛒 : {amount}</Link>
+            <NavLink to={'/shop'}> <div>Shop</div> </NavLink>
             <br />
-            <Link to={'/item'}> item </Link>
+            <NavLink to={'/cart'}> <div>🛒 : {amount}</div></NavLink>
         </nav>
     )
 }
@@ -17,7 +17,7 @@ const Header = ({ amount }) => {
 
     return (
         <header>
-            <h3> 👹 PokeShop 👹 </h3>
+            <h3> 👹 FakeShop 👹 </h3>
             <Nav amount={amount}/>
         </header>
     )

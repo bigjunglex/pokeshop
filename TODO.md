@@ -1,12 +1,15 @@
 [ X ] items to sessionStorage
 [ X ] dummi items
-[   ] Shop Cards
-[   ] Add to Card Btn
+[ X ] Shop Cards
+[ X ] Add to Card Btn
 [ X ] Loader
-[   ] Retry btn on shop
-[   ] cart logic
+[ X ] cart logic
+[  ] fix links in header
+[  ] Change fakestore's to pokeapi
+[  ] add testing lib + basic unit test
+[  ] Test shop
+[  ] Test cart 
 
-
-
-[  ] Change fakestore's data&fetch to pokeapi
-[  ] Footer links to gh and top lesson
+[  ] Add content to home
+[  ] Better card layout
+[  ] Footer links to gh and ODIN lesson

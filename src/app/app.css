@@ -5,12 +5,15 @@
     --text-white: #fff;
 }
 
-
+html {
+    overflow-y: scroll;
+}
 
 * {
     margin: 0;
     padding: 0;
 }
+
 
 #root {
     flex: 1;
@@ -37,24 +40,34 @@ details[open] > summary > span{
 }
 
 header {
+    width: 100%;
     background-color: var(--red);
     color: var(--text-white);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 8px 24px 0;
+    align-items: stretch;
     min-height: 100px;
+}
+
+header > h3 {
+    align-self: center;
 }
 
 nav {
     display: flex;
-    gap: 20px;
-    width: 25%;
+    justify-content: stretch;
 }
 
 nav > a {
+    display: flex;
     text-decoration: none;
     color: var(--white);
+    min-width: max-content;
+    padding: 0 8px;
+}
+
+a > div {
+    align-self:  center;
 }
 
 footer {
@@ -164,5 +177,18 @@ main {
     padding: 16px;
     background-color: greenyellow;
     box-shadow: 0 0 0 9999px rgb(239, 83, 80, 0.5);;
+}
+
+
+a:hover {
+    background-color: rgba(187,239,253,.3);
+}
+
+a.active {
+    background-color: #c62828;
+}
+
+a.active:hover {
+    background: #d32b2b;
 }
 
