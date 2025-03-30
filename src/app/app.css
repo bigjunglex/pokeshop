@@ -77,7 +77,18 @@ footer {
 .listing {
     display: flex;
     justify-content: space-between;
+    gap: 3em;
     padding: 0 10px;
+}
+
+.listing:nth-of-type(even) {
+    background-color:var(--red);
+}
+
+.item_list {
+    width: 100%;
+    padding-top: 20px;
+    box-shadow: inset 0 -3em 3em rgba(255, 0, 0, 0.3);
 }
 
 
@@ -159,8 +170,7 @@ main {
     }
 }
 
-.item_list {
-}
+
 
 .cart_wrapper {
     flex: 1;
