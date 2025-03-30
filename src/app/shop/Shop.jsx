@@ -17,7 +17,6 @@ const Card = ({ item, toCart }) => {
         toCart(p => [...p, ...newItems])
     }
 
-
     return (
         <div className="item_card">
             <h4>{item.title}</h4>
@@ -25,7 +24,7 @@ const Card = ({ item, toCart }) => {
             {loading && <Loader />}
             <img 
                 src={item.image} 
-                onLoad={() => setLoading(false)} 
+                onLoad={() => {setLoading(false), console.log(`${item.id} loaded`)}} 
                 style={{ display: loading ? 'none' : 'block' }}
                 onError={() => setLoading(false)}
                 alt="👕"

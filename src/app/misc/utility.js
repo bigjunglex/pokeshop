@@ -18,5 +18,17 @@ const retry = async (fn, tries = 5) => {
     }
 }
 
+const trunkItems = (items) => {
+    return items.reduce((acc, el) => {
+        let copy = acc.find(i => i.id === el.id)
+        if(copy) {
+            copy = {...copy, count: copy.count++}
+        } else {
+            const curr = {...el, count : 1}
+            acc.push(curr)
+        }
+        return acc
+    }, [])
+}
 
-export { getData, retry }
+export { getData, retry, trunkItems }
