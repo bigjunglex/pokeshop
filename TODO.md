@@ -4,11 +4,14 @@
 [ X ] Add to Card Btn
 [ X ] Loader
 [ X ] cart logic
-[  ] fix links in header
+[ X ] fix links in header
 [  ] Change fakestore's to pokeapi
 [  ] add testing lib + basic unit test
 [  ] Test shop
 [  ] Test cart 
+
+
+[ ] Add script for test-id data removal
 
 [  ] Add content to home
 [  ] Better card layout

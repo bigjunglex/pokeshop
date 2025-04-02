@@ -56,7 +56,7 @@ const Shop = () => {
     
     return (
         <main>
-            <div className="shop_wrapper">
+            <div data-testid='shop' className="shop_wrapper">
                 {items.map(item => <Card key={item.id} item={item} toCart={setCart}/> )}
             </div>
         </main>

@@ -17,7 +17,7 @@ const Header = ({ amount }) => {
 
     return (
         <header>
-            <h3> 👹 FakeShop 👹 </h3>
+            <h3 data-testid="logo"> 👹 FakeShop 👹 </h3>
             <Nav amount={amount}/>
         </header>
     )

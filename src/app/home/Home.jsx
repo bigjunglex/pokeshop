@@ -6,7 +6,7 @@ const Home = () => {
   
   return ( 
   <>
-    <h1>HOME :japanese_ogre: </h1>
+    <h1 data-testid='greet'>HOME :japanese_ogre: </h1>
   </>
   )
 }
