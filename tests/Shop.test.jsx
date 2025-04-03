@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Shop } from "../src/app/shop/Shop.jsx";
-import { Header } from "../src/app/home/Header.jsx";
 import userEvent from "@testing-library/user-event";
 import { createMemoryRouter, RouterProvider, Outlet} from "react-router";
 
@@ -65,6 +64,4 @@ describe('shop ---', () => {
         await user.type(input, '123')
         expect(btn).toBeDisabled()
     })
-
-
 })

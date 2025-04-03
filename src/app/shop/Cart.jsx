@@ -6,15 +6,15 @@ const ItemList = ({ items }) => {
     const trunkedItems = trunkItems(items)
 
     return (
-        <ul className="item_list">
-            {trunkedItems.map((el, i) => <li className="listing" key={el.id}> {el.title} <span>{el.count} {(el.price * el.count).toFixed(2)} 🔮</span> </li>)}
+        <ul data-testid="item-list" className="item_list">
+            {trunkedItems.map((el) => <li data-testid="listing" className="listing" key={el.id}> {el.title} <span>{el.count} {(el.price * el.count).toFixed(2)} 🔮</span> </li>)}
         </ul>
     )
 }
 
 const Succes = () => {
     return (
-        <div className="success">
+        <div data-testid="success" className="success">
             <h1> ✔  Success  ✔</h1>
         </div>
     )
@@ -42,8 +42,8 @@ const Cart = () => {
         <div className="cart_wrapper">
             <ItemList items={cart}/>
             <div className="checkout_wrap">
-                <h1>Total: {total} 🔮</h1>
-                <button onClick={handleCheckout}>
+                <h1 data-testid="cart-total">Total: {total} 🔮</h1>
+                <button data-testid="checkout" onClick={handleCheckout}>
                     Checkout
                 </button>
             </div>
