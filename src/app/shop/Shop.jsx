@@ -17,8 +17,16 @@ const Card = ({ item, toCart }) => {
         toCart(p => [...p, ...newItems])
     }
 
+    const shortDesc = (description) => {
+        if (description.length > 43) {
+            return description.substring(40, ) + '...'
+        } else {
+            return description
+        }
+    }
+
     return (
-        <div className="item_card">
+        <div data-testid="item-card" className="item_card">
             <h4>{item.title}</h4>
             
             {loading && <Loader />}
@@ -33,15 +41,15 @@ const Card = ({ item, toCart }) => {
             
             <h5>{item.price}</h5>
             <div className="card_inputs">
-                <input type="number" id={item.id}
+                <input data-testid="item-input" type="number" id={item.id}
                 onChange={e => handleChange(e)} value={input}
                 min={1} max={10} />
-                <button onClick={() => handleToCart(item, input)}
+                <button data-testid="item-btn" onClick={() => handleToCart(item, input)}
                 disabled={!btnStatus}
                 >Add to cart</button>
             </div>
             <details>
-                <summary><span>{item.description.substring(0,40) + '...'}</span></summary>
+                <summary><span>{shortDesc(item.description)}</span></summary>
                 {item.description}
             </details>
         </div>
@@ -55,8 +63,8 @@ const Shop = () => {
     if (isLoading) return <Loader />
     
     return (
-        <main>
-            <div data-testid='shop' className="shop_wrapper">
+        <main data-testid="shop">
+            <div className="shop_wrapper">
                 {items.map(item => <Card key={item.id} item={item} toCart={setCart}/> )}
             </div>
         </main>

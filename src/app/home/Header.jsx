@@ -4,11 +4,11 @@ import { NavLink } from "react-router"
 const Nav = ({ amount }) => {
     return (
         <nav>
-            <NavLink to={'/'}> <div>Home</div> </NavLink>
+            <NavLink to={'/'}> <div data-testid="home-link">Home</div> </NavLink>
             <br />
-            <NavLink to={'/shop'}> <div>Shop</div> </NavLink>
+            <NavLink to={'/shop'}> <div data-testid="shop-link">Shop</div> </NavLink>
             <br />
-            <NavLink to={'/cart'}> <div>🛒 : {amount}</div></NavLink>
+            <NavLink to={'/cart'}> <div data-testid="cart-link">🛒 : {amount}</div></NavLink>
         </nav>
     )
 }

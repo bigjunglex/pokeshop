@@ -6,12 +6,13 @@
 [ X ] cart logic
 [ X ] fix links in header
 [  ] Change fakestore's to pokeapi
-[  ] add testing lib + basic unit test
-[  ] Test shop
+[ X ] add testing lib + basic unit test
+[ X ] Test routing
+[ X ] Test shop
 [  ] Test cart 
 
 
-[ ] Add script for test-id data removal
+[ X ] Add script for test-id data removal
 
 [  ] Add content to home
 [  ] Better card layout

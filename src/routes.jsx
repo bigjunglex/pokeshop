@@ -5,7 +5,7 @@ import { Shop } from "./app/shop/Shop.jsx"
 import { App } from "./app/App.jsx"
 
 
-const routes = [
+const appRoutes = [
     {
         path: "/",
         element: <App />,
@@ -29,4 +29,4 @@ const routes = [
 
 
 
-export { routes }
+export { appRoutes }

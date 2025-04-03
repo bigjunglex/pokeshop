@@ -1,14 +1,31 @@
-import { describe, it, expect } from "vitest";
-import { MemoryRouter } from "react-router";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { createBrowserRouter, RouterProvider} from "react-router";
 import { render, screen } from "@testing-library/react";
-import { App } from "../src/app/App.jsx";
+import { appRoutes } from "../src/routes.jsx";
 import { Shop } from "../src/app/shop/Shop.jsx";
+import userEvent from "@testing-library/user-event";
 
-describe('App', () => {
-    it('renders headline', () => {
-        render(<MemoryRouter>
-                    <App />
-                </MemoryRouter>);
-        expect(screen.getByTestId('logo').textContent).toMatch(' 👹 FakeShop 👹 ')
-    });
-});
+
+describe('spa navigation, walkthrough pages', () => {
+    const router = createBrowserRouter(appRoutes)
+    const user = userEvent.setup();
+    
+    beforeEach(() => {
+        render(<RouterProvider router={router}/>);
+    })
+    
+    it('header', () => expect(screen.getByTestId('logo').textContent).toMatch(' 👹 FakeShop 👹 '))
+    it('cart', async () => {
+        await user.click(screen.getByTestId('cart-link'))
+        expect(screen.getByText(/total/i)).toBeInTheDocument()
+    })
+    it('home', async () => {
+        await user.click(screen.getByTestId('home-link'))
+        expect(screen.getByTestId('greet')).toBeInTheDocument()
+    })    
+    it('shop', async () => {
+        await user.click(screen.getByTestId('shop-link'))
+        expect(screen.getByTestId('shop')).toBeInTheDocument()
+    })
+}) 
+

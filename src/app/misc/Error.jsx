@@ -1,5 +1,5 @@
 const Error = () => {
-    return <h1>ERRORNIGGER</h1>
+    return <h1 data-testid="error">Gods dont accept this question</h1>
 }
 
 export { Error }
