@@ -10,7 +10,7 @@ import { dummyItems } from "./dummy.js";
 
 describe('basic cart tests', () => {
     const user = userEvent.setup()
-    let mockItems = JSON.parse(dummyItems)
+    let mockItems = dummyItems
     const mockContext =  {cart: [mockItems, () => mockItems = []]}
     const router = createMemoryRouter([
         {
@@ -41,7 +41,7 @@ describe('basic cart tests', () => {
         // basic render works ok
         expect(+total.textContent.replace(/[^\d\.]/g, '')).not.toBe(0)
         expect(list).toBeInTheDocument()
-        expect(listings.length).toBe(20)
+        expect(listings.length).toBe(mockItems.length)
         //succes element onclick
         await user.click(checkout)
         expect(screen.getByTestId('success')).toBeInTheDocument() 

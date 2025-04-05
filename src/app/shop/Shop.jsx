@@ -4,7 +4,6 @@ import { Loader } from "../misc/Loader.jsx"
 
 
 const Card = ({ item, toCart }) => {
-    const [loading, setLoading] = useState(true)
     const [input, setInput] = useState(1)
     const btnStatus = input <= 10
 
@@ -31,8 +30,6 @@ const Card = ({ item, toCart }) => {
             
             <img 
                 src={item.sprites.other['official-artwork'].front_default} 
-                onLoad={() => setLoading(false)} 
-                onError={() => setLoading(false)}
                 alt="👕"
             />
     
@@ -57,13 +54,17 @@ const Shop = () => {
     const items = useOutletContext().shop.items
     const isLoading = useOutletContext().shop.isLoading
     const [cart, setCart] = useOutletContext().cart
-    if (isLoading) return <Loader />
     
     return (
         <main data-testid="shop">
-            <div className="shop_wrapper">
-                {items.map(item => <Card key={item.id} item={item} toCart={setCart}/> )}
-            </div>
+            {isLoading ? (
+                <Loader />
+                ) : (
+                <div className="shop_wrapper">
+                    {items.map(item => <Card key={item.id} item={item} toCart={setCart}/> )}
+                </div>
+                )
+            }
         </main>
     )
 
