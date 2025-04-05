@@ -19,7 +19,7 @@ const Card = ({ item, toCart }) => {
 
     const shortDesc = (description) => {
         if (description.length > 43) {
-            return description.substring(40, ) + '...'
+            return description.substring(0,40) + '...'
         } else {
             return description
         }
