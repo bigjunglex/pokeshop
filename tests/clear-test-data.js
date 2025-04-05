@@ -13,6 +13,7 @@ import fs from 'node:fs';
     } catch (error) {
         console.log(error)
     }
+    console.log('test-id\'s cleared')
 })()
 
 

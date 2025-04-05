@@ -21,7 +21,7 @@ const Succes = () => {
 }
 
 const Cart = () => {
-    const [cart, setCart] = useOutletContext().cart
+    const [cart , setCart] = useOutletContext().cart
     const [accepted, setAccepted] = useState(false)
     const total = cart.reduce((acc, i) => acc += i.price, 0).toFixed(2)
 

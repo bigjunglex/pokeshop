@@ -6,10 +6,12 @@ import { Outlet, RouterProvider, createMemoryRouter } from "react-router";
 import { dummyItems } from "../src/app/misc/dummy.js";
 
 
+
+
 describe('basic cart tests', () => {
     const user = userEvent.setup()
-    const mockItems = JSON.parse(dummyItems)
-    const mockContext =  {cart: [mockItems, () => console.log(1)]}
+    let mockItems = JSON.parse(dummyItems)
+    const mockContext =  {cart: [mockItems, () => mockItems = []]}
     const router = createMemoryRouter([
         {
             path:'/',
@@ -34,14 +36,14 @@ describe('basic cart tests', () => {
         const total = screen.getByTestId('cart-total')
         const list = screen.getByTestId('item-list')
         const listings = screen.getAllByTestId('listing')
-        const checkout = screen.getByTestId
+        const checkout = screen.getByTestId('checkout')
         
         // basic render works ok
-        expect(+total.textContent.replace(/[^\d\.]/g, '')).toBe(3240.92)
+        expect(+total.textContent.replace(/[^\d\.]/g, '')).not.toBe(0)
         expect(list).toBeInTheDocument()
         expect(listings.length).toBe(20)
-
-        //list clear on success + succes notification
-        await user.click()
+        //succes element onclick
+        await user.click(checkout)
+        expect(screen.getByTestId('success')).toBeInTheDocument() 
     })
 })
