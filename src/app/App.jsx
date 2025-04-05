@@ -27,14 +27,14 @@ const App = () => {
     //shop info fetch + interaction with session storage
     useEffect(() => {
         //dummy data intercepts fetch
-        sessionStorage.setItem('items', dummyItems)
+        // sessionStorage.setItem('items', dummyItems)
 
         // base fetch logic
         const stored = JSON.parse(sessionStorage.getItem('items'))
         if(stored){
             setItems({items:stored, isLoading: false})
         } else {
-            retry(getData, 5)
+            getData(10)
             .then((value) => {
                 if(value){   
                     setItems({items:value, isLoading:false})

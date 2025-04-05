@@ -1,8 +1,36 @@
-const getData = async () => {
-    const res = await fetch('https://fakestoreapi.com/products')
-    const out = await res.json()
-    
-    return out
+const getRandomIds = (amount) => {
+    const out = new Set();
+    for (let i = 0; i < amount; i++){
+        const curr = Math.floor(Math.random() * 100)
+        if (out.has(curr) || curr === 0){
+            i--
+            continue
+        } else {
+            out.add(curr)
+        }
+    }
+    return Array.from(out)
+}
+
+const getData = async (amount = 20) => {
+    const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
+    const ids = getRandomIds(amount)
+    try {
+        const out = await Promise.all(ids.map(async (id) => {         
+            const url = baseUrl + id
+            const res = await fetch(url, {mode: "cors"})
+            if (!res.ok){
+                throw new Error(`failed to fetch pokemon id: ${id}:${res.statusText}`)
+            }
+
+            return res.json()
+        }))
+
+        return out
+    } catch (error) {
+        console.log('Error on getData fetch', error)
+        throw error
+    }
 }
 
 const retry = async (fn, tries = 5) => {
