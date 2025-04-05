@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Cart } from "../src/app/shop/Cart.jsx";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router";
-import { dummyItems } from "../src/app/misc/dummy.js";
+import { dummyItems } from "./dummy.js";
 
 
 

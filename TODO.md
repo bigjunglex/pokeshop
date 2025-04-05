@@ -5,11 +5,12 @@
 [ X ] Loader
 [ X ] cart logic
 [ X ] fix links in header
-[  ] Change fakestore's to pokeapi
+[ X ] Change fakestore's to pokeapi
+[  ] Format pokejson into description
 [ X ] add testing lib + basic unit test
 [ X ] Test routing
 [ X ] Test shop
-[  ] Test cart 
+[ X ] Test cart 
 
 
 [ X ] Add script for test-id data removal

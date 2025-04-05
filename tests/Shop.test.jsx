@@ -3,16 +3,10 @@ import { render, screen } from "@testing-library/react";
 import { Shop } from "../src/app/shop/Shop.jsx";
 import userEvent from "@testing-library/user-event";
 import { createMemoryRouter, RouterProvider, Outlet} from "react-router";
-
+import { dummyItems } from "./dummy.js";
 
 describe('shop ---', () => {
-    const testItem = {
-        "id": 3,
-        "title": "SLUG OGRE CHEST PIECE",
-        "price": 100,
-        "description": "BIG STRONG.",
-        "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
-    }
+    const testItem = dummyItems[0]
     const mockContext = {shop: {items: [testItem], isLoading: false}, cart: [[], () => console.log(1)]}
     const user = userEvent.setup();
     const router = createMemoryRouter([
