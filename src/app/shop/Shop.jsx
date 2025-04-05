@@ -33,7 +33,7 @@ const Card = ({ item, toCart }) => {
                 alt="👕"
             />
     
-            <h5>{item.weight}</h5>
+            <h5>Price: {item.weight}  🔮</h5>
             <div className="card_inputs">
                 <input data-testid="item-input" type="number" id={item.id}
                 onChange={e => handleChange(e)} value={input}
@@ -43,7 +43,7 @@ const Card = ({ item, toCart }) => {
                 >Add to cart</button>
             </div>
             <details>
-                <summary><span>{shortDesc(String(item.stats))}</span></summary>
+                <summary><span>Abilities</span></summary>
                 {String(item.stats)}
             </details>
         </div>

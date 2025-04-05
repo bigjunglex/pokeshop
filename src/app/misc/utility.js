@@ -47,4 +47,7 @@ const trunkItems = (items) => {
     }, [])
 }
 
+
+
+
 export { getData, trunkItems }
