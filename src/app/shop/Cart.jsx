@@ -7,7 +7,7 @@ const ItemList = ({ items }) => {
 
     return (
         <ul data-testid="item-list" className="item_list">
-            {trunkedItems.map((el) => <li data-testid="listing" className="listing" key={el.id}> {el.title} <span>{el.count} {(el.price * el.count).toFixed(2)} 🔮</span> </li>)}
+            {trunkedItems.map((el) => <li data-testid="listing" className="listing" key={el.id}> {el.name} <span>{el.count} {(el.weight * el.count).toFixed(2)} 🔮</span> </li>)}
         </ul>
     )
 }
@@ -23,7 +23,7 @@ const Succes = () => {
 const Cart = () => {
     const [cart , setCart] = useOutletContext().cart
     const [accepted, setAccepted] = useState(false)
-    const total = cart.reduce((acc, i) => acc += i.price, 0).toFixed(2)
+    const total = cart.reduce((acc, i) => acc += i.weight, 0).toFixed(2)
 
     useEffect(() => {
         if(accepted){

@@ -27,19 +27,16 @@ const Card = ({ item, toCart }) => {
 
     return (
         <div data-testid="item-card" className="item_card">
-            <h4>{item.title}</h4>
+            <h4>{item.name}</h4>
             
-            {loading && <Loader />}
             <img 
-                src={item.image} 
-                onLoad={() => {setLoading(false), console.log(`${item.id} loaded`)}} 
-                style={{ display: loading ? 'none' : 'block' }}
+                src={item.sprites.other['official-artwork'].front_default} 
+                onLoad={() => setLoading(false)} 
                 onError={() => setLoading(false)}
                 alt="👕"
-                loading="lazy"
             />
-            
-            <h5>{item.price}</h5>
+    
+            <h5>{item.weight}</h5>
             <div className="card_inputs">
                 <input data-testid="item-input" type="number" id={item.id}
                 onChange={e => handleChange(e)} value={input}
@@ -49,8 +46,8 @@ const Card = ({ item, toCart }) => {
                 >Add to cart</button>
             </div>
             <details>
-                <summary><span>{shortDesc(item.description)}</span></summary>
-                {item.description}
+                <summary><span>{shortDesc(String(item.stats))}</span></summary>
+                {String(item.stats)}
             </details>
         </div>
     )

@@ -33,18 +33,6 @@ const getData = async (amount = 20) => {
     }
 }
 
-const retry = async (fn, tries = 5) => {
-    try {
-        const res = await fn()
-        return res
-    }catch (error) {
-        if(tries > 1) {
-            await retry(fn, tries - 1)
-        }else{
-            throw error
-        }
-    }
-}
 
 const trunkItems = (items) => {
     return items.reduce((acc, el) => {
@@ -59,4 +47,4 @@ const trunkItems = (items) => {
     }, [])
 }
 
-export { getData, retry, trunkItems }
+export { getData, trunkItems }

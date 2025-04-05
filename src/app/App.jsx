@@ -2,9 +2,9 @@ import { Outlet } from "react-router"
 import { Header } from "./home/Header.jsx"
 import { Footer } from "./home/Footer.jsx"
 import { useState, useEffect, use } from "react"
-import { getData, retry } from "./misc/utility.js"
+import { getData } from "./misc/utility.js"
 import './app.css' 
-import { dummyItems} from "./misc/dummy.js"
+
 
 const App = () => {
     const [cart, setCart] = useState([])
@@ -26,15 +26,12 @@ const App = () => {
     
     //shop info fetch + interaction with session storage
     useEffect(() => {
-        //dummy data intercepts fetch
-        // sessionStorage.setItem('items', dummyItems)
-
         // base fetch logic
         const stored = JSON.parse(sessionStorage.getItem('items'))
         if(stored){
             setItems({items:stored, isLoading: false})
         } else {
-            getData(10)
+            getData(15)
             .then((value) => {
                 if(value){   
                     setItems({items:value, isLoading:false})
