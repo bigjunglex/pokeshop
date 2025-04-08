@@ -1,6 +1,7 @@
-import { useOutletContext, Link } from "react-router"
+import { useOutletContext} from "react-router"
 import { useState } from "react"
 import { Loader } from "../misc/Loader.jsx"
+import { formatDesc } from "../misc/utility.js"
 
 
 const Card = ({ item, toCart }) => {
@@ -16,13 +17,6 @@ const Card = ({ item, toCart }) => {
         toCart(p => [...p, ...newItems])
     }
 
-    const shortDesc = (description) => {
-        if (description.length > 43) {
-            return description.substring(0,40) + '...'
-        } else {
-            return description
-        }
-    }
 
     return (
         <div data-testid="item-card" className="item_card">
@@ -43,8 +37,8 @@ const Card = ({ item, toCart }) => {
                 >Add to cart</button>
             </div>
             <details>
-                <summary><span>Abilities</span></summary>
-                {String(item.stats)}
+                <summary><span>Stats</span></summary>
+                {formatDesc(item.stats)}
             </details>
         </div>
     )

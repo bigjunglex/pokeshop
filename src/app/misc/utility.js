@@ -47,7 +47,44 @@ const trunkItems = (items) => {
     }, [])
 }
 
+const getStatEmoji = (stat) => {
+    let out;
+    switch (stat) {
+        case 'hp':
+            out = String.fromCodePoint('0x2764')
+            break;
+        case 'attack':
+            out = String.fromCodePoint('0x2694')
+            break;
+        case 'defense':
+            out = String.fromCodePoint('0x1F6E1')
+            break;
+        case 'special-attack':
+            out = String.fromCodePoint('0x1F5FB')
+            break;
+        case 'special-defense':
+            out = String.fromCodePoint('0x1F3EF')
+            break;
+        case 'speed':
+            out = String.fromCodePoint('0x1F697')
+            break;
+    }
+
+    return out
+}
+
+//  expects arrays of relate stats(item.stats | pokemon.stats)
+const formatDesc = (desc) => {
+    let out = '';
+    for (let i = 0; i < desc.length; i++) {
+        const emoj = getStatEmoji(desc[i].stat.name)
+        out = out + `\n${emoj} ${desc[i].stat.name} : ${desc[i]['base_stat']}` 
+    }
+
+
+    return out
+}
 
 
 
-export { getData, trunkItems }
+export { getData, trunkItems, formatDesc }
