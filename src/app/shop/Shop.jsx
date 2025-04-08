@@ -38,7 +38,9 @@ const Card = ({ item, toCart }) => {
             </div>
             <details>
                 <summary><span>Stats</span></summary>
-                {formatDesc(item.stats)}
+                <ul className="stats">
+                    {formatDesc(item.stats).split(/\n/g).map(stat => <li key={item.id}>{stat}</li>)}
+                </ul>
             </details>
         </div>
     )

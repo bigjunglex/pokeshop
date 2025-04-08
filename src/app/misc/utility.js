@@ -78,7 +78,7 @@ const formatDesc = (desc) => {
     let out = '';
     for (let i = 0; i < desc.length; i++) {
         const emoj = getStatEmoji(desc[i].stat.name)
-        out = out + `\n${emoj} ${desc[i].stat.name} : ${desc[i]['base_stat']}` 
+        out = out + `\n ${emoj} ${desc[i].stat.name} : ${desc[i]['base_stat']}` 
     }
 
 
