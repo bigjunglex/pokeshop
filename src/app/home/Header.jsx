@@ -1,5 +1,5 @@
 import { NavLink } from "react-router"
-
+import { useEffect, useState } from "react"
 
 const Nav = ({ amount }) => {
     return (
@@ -14,12 +14,33 @@ const Nav = ({ amount }) => {
 }
 
 const Header = ({ amount }) => {
+    const [isScrolled, setIsScrolled] = useState(true)
+
+    useEffect(() => {
+        const target = document.querySelector('header')
+        const watcher = document.getElementById('scroll_watcher')
+        const observer = new IntersectionObserver(([entry]) => {
+            target.classList.toggle('scrolled', !entry.isIntersecting)
+            setIsScrolled(prev => !prev)
+        });
+       
+        observer.observe(watcher)
+
+        return () => {
+            if (watcher) observer.disconnect()
+        }
+
+    },[])
 
     return (
+    <>
+        <div id="scroll_watcher"></div>
         <header>
-            <h3 data-testid="logo"> 👹 FakeShop 👹 </h3>
+            <h3 data-testid="logo" 
+                style={{visibility: isScrolled ? 'hidden' : 'visible'}}> 👹 PokeShop 👹 </h3>
             <Nav amount={amount}/>
         </header>
+    </>
     )
 }
 

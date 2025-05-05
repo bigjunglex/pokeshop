@@ -40,13 +40,17 @@ details[open] > summary > span{
 }
 
 header {
+
+    position: sticky;
+    top: 0%;    
+    z-index: 2;
     width: 100%;
     background-color: var(--red);
     color: var(--text-white);
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    min-height: 100px;
+    min-height: 40px;
 }
 
 header > h3 {
@@ -212,4 +216,15 @@ a.active:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
+}
+
+
+header.scrolled {
+    background-color: var(--black);
+}
+
+#scroll_watcher {
+    height: 10%;
+    position: absolute;
+    z-index: -3;
 }

@@ -2,7 +2,7 @@
 [ X ] dummi items
 [ X ] Shop Cards
 [ X ] Add to Card Btn
-[ X ] Loader
+[ X ] Loader----> # CHANGE TO SUSPENSE
 [ X ] cart logic
 [ X ] fix links in header
 [ X ] Change fakestore's to pokeapi
@@ -12,8 +12,13 @@
 [ X ] Test shop
 [ X ] Test cart 
 
+
+[ X ] STICKY NAV 
+    +++++
+[ ] no logo on scroll
+
 [ ] try PORTAL for notification add (right bottom scren)
-[ ] try PORTAL for pay screen (center modal)
+[ X ] try PORTAL for pay screen (center modal)
 [ ] use Suspense 
 
 []  try pagination on client 
