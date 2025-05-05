@@ -13,11 +13,34 @@ const ItemList = ({ items }) => {
     )
 }
 
-const Succes = () => {
+const Succes = ({ duration }) => {
+    const [barWidth, setBarWidth] = useState(100)
+
+    useEffect(() => {
+        const start = Date.now()
+        const loop = () => {
+            const elapsed = Date.now() - start
+            const percent = Math.max(0, 100 - (elapsed / duration) * 100)
+            setBarWidth(percent)
+        
+            if(percent > 0) {
+                requestAnimationFrame(loop)
+            }
+        }
+
+        requestAnimationFrame(loop)
+    
+    },[])
+
+
     return (
         <div data-testid="success" className="success">
             <h1> ✔  Success  ✔</h1>
             <p>Something indeed happened...</p>
+            <div
+                className="success_progress"
+                style={{width: `${barWidth}%`}}
+            />
         </div>
     )
 }
@@ -28,9 +51,11 @@ const Cart = () => {
     const total = cart.reduce((acc, i) => acc += i.weight, 0).toFixed(2)
     const portal = document.getElementById('portal_checkout')
     
+    const duration = 1300
+
     useEffect(() => {
         if(accepted){
-            setTimeout(() => setAccepted(false),1300)
+            setTimeout(() => setAccepted(false),duration)
         }
         
     },[accepted])
@@ -52,7 +77,7 @@ const Cart = () => {
                 </button>
             </div>
 
-            {accepted && createPortal(<Succes />, portal)}
+            {accepted && createPortal(<Succes duration={duration} />, portal)}
         </div>
     )
 }

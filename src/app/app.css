@@ -198,6 +198,13 @@ main {
 }
 
 
+.success_progress {
+    margin-top: 15px;
+    height: 3px;
+    background-color: var(--black);
+}
+
+
 a:hover {
     background-color: rgba(187,239,253,.3);
 }
@@ -281,3 +288,4 @@ header.scrolled {
     flex-direction: column;
     justify-content: start;
 }
+
