@@ -26,7 +26,6 @@ const App = () => {
     
     //shop info fetch + interaction with session storage
     useEffect(() => {
-        
         // base fetch logic
         const stored = JSON.parse(sessionStorage.getItem('items'))
         if(stored){
