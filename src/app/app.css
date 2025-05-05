@@ -185,7 +185,7 @@ main {
     border-radius: 20px;
     padding: 16px;
     background-color: greenyellow;
-    box-shadow: 0 0 0 9999px rgb(239, 83, 80, 0.5);;
+    box-shadow: 0 0 0 9999px rgba(8, 0, 0, 0.5);;
 }
 
 
@@ -203,4 +203,13 @@ a.active:hover {
 
 .stats {
     list-style: none;
+}
+
+
+#portal_checkout {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }

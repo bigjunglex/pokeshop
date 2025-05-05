@@ -12,8 +12,17 @@
 [ X ] Test shop
 [ X ] Test cart 
 
+[ ] try PORTAL for notification add (right bottom scren)
+[ ] try PORTAL for pay screen (center modal)
+[ ] use Suspense 
+
+[]  try pagination on client 
+[]  clickable cards
 
 [ X ] Add script for test-id data removal
+
+[ ] add carousel to main 
+[ ] add moving emoji banner main 
 
 [  ] Add content to home
 [  ] Better card layout
