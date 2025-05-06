@@ -1,7 +1,8 @@
 import { useOutletContext} from "react-router"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Loader } from "../misc/Loader.jsx"
 import { formatDesc } from "../misc/utility.js"
+import { getData } from "../misc/utility.js"
 
 
 const Card = ({ item, toCart }) => {
@@ -45,12 +46,48 @@ const Card = ({ item, toCart }) => {
         </div>
     )
 }
-
+/**
+ * SHOP CONTEXT  = [ITEMS , SETITEMS]
+ */
 const Shop = () => {
-    const items = useOutletContext().shop.items
-    const isLoading = useOutletContext().shop.isLoading
+    const items = useOutletContext().shop[0].items
+    const setItems = useOutletContext().shop[1]
+    const isLoading = useOutletContext().shop[0].isLoading
     const [cart, setCart] = useOutletContext().cart
+    const [needItems, setNeedItems] = useState(false)
     
+    useEffect(() => {
+        (async () => {
+            if(needItems) {
+                const newItems = await getData(15)
+                setItems(prev => {
+                    return {
+                        items: [...prev.items, ...newItems],
+                        isLoading: false
+                    }
+                })
+                setNeedItems(false)
+            }
+        })();
+    }, [needItems])
+
+    useEffect(() => {
+        const watcher = document.getElementById('store_watcher')
+        const observer = new IntersectionObserver(([entry]) => {
+            console.log('end of the shop %s', entry.isIntersecting)
+            if(entry.isIntersecting){
+                setNeedItems(true)
+            }
+        })
+
+        observer.observe(watcher)
+
+        return () => {
+            if(watcher) { observer.disconnect() }
+        }
+    }, [])
+
+
     return (
         <main data-testid="shop">
             {isLoading ? (
@@ -61,6 +98,7 @@ const Shop = () => {
                 </div>
                 )
             }
+            <div id="store_watcher"/>
         </main>
     )
 

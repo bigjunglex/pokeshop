@@ -23,9 +23,9 @@ const Slider = ({ icons }) => {
 }
 
 const Home = () => {
-  const isLoading = useOutletContext().shop.isLoading
-  const items = useOutletContext().shop.items
-  const icons = items.map(item => item.sprites.front_default)
+  const isLoading = useOutletContext().shop[0].isLoading
+  const items = useOutletContext().shop[0].items
+  const icons = items.map(item => item.sprites.front_default).slice(0,15)
 
   return ( 
     <div className="home_wrapper">

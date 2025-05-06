@@ -1,7 +1,7 @@
 const getRandomIds = (amount) => {
     const out = new Set();
     for (let i = 0; i < amount; i++){
-        const curr = Math.floor(Math.random() * 100)
+        const curr = Math.floor(Math.random() * 800)
         if (out.has(curr) || curr === 0){
             i--
             continue

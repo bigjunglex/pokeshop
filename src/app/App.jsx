@@ -45,7 +45,7 @@ const App = () => {
     return (
     <>
         <Header amount={cart.length} />
-        <Outlet context={{shop: items, cart: [cart, setCart]}} />
+        <Outlet context={{shop: [items, setItems], cart: [cart, setCart]}} />
         <Footer />
     </>
     )
